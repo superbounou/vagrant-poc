@@ -6,7 +6,7 @@ After=network.target
 User=root
 Group=root
 WorkingDirectory=/opt/web/powerdns-admin
-ExecStart=/opt/web/powerdns-admin/flask/bin/gunicorn --workers 2 --bind unix:/opt/web/powerdns-admin/powerdns-admin.sock app:app
+ExecStart=/opt/web/powerdns-admin/flask/bin/gunicorn --workers 2 --bind 0.0.0.0:1951 app:app
 
 [Install]
 WantedBy=multi-user.target
