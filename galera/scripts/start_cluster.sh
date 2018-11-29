@@ -1,0 +1,2 @@
+galera_new_cluster
+systemctl start mariadb.service
