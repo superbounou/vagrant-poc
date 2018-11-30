@@ -10,12 +10,14 @@ echo "
 192.168.0.12 galera03" >> /etc/hosts
 # desactivate firewall
 systemctl disable firewalld
-# update repo 
+# update repo
 yum update -y
-yum install -y vim
+yum install -y vim net-tools
 if [[ $HOSTNAME =~ haproxy[0-9]+ ]]; then
 	yum -y install haproxy
 	cp /vagrant/etc/haproxy.conf  /etc/haproxy/haproxy.cfg
+	systemctl enable haproxy.service
+	systemctl start haproxy.service
 	exit
 fi
 
