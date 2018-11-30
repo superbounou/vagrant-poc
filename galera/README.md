@@ -74,7 +74,6 @@ Expected output :
 Perfect. Now we can create dummy data for testing  :
 
 ```
-sudo -i
 /vagrant/scripts/db_test.sh
 ```
 
@@ -98,6 +97,6 @@ Everything is green now :)
 
 On your host :
 
-mysql -P3307 -umydbtestuser -p -h127.0.0.1 mydbtest
-
-* mysql://localhost:3307 : Galera cluster with HA ;
+```
+mysql -P3307 -umydbtestuser -p -h127.0.0.1 mydbtest scripts/wordpress.sample.sql
+```
