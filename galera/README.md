@@ -98,5 +98,5 @@ Everything is green now :)
 On your host :
 
 ```
-mysql -P3307 -umydbtestuser -p -h127.0.0.1 mydbtest scripts/wordpress.sample.sql
+mysql -P3307 -umydbtestuser -p -h127.0.0.1 mydbtest  < scripts/wordpress.sample.sql
 ```
