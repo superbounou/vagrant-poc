@@ -83,7 +83,7 @@ Finally we can secure our cluster :
 mysql_secure_installation
 ```
 
-You can check the replication, the database "test" is deleted on all node's cluster and we a have database "mydbtest".
+You can check the replication, the database "test" is deleted on all node's cluster.
 
 The cluster is up and running now, but on HAproxy the backends are still red. Yes because HAproxy had not a proper user on the cluster to connect on it. Let's fix it :
 
