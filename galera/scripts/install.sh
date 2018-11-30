@@ -13,8 +13,9 @@ systemctl disable firewalld
 # update repo
 yum update -y
 yum install -y vim net-tools
+curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | bash
 if [[ $HOSTNAME =~ haproxy[0-9]+ ]]; then
-	yum -y install haproxy
+	yum -y install haproxy MariaDB-client
 	cp /vagrant/etc/haproxy.conf  /etc/haproxy/haproxy.cfg
 	systemctl enable haproxy.service
 	systemctl start haproxy.service
@@ -26,7 +27,6 @@ if [[ $HOSTNAME =~ galera[0-9]+ ]]; then
 	echo never > /sys/kernel/mm/transparent_hugepage/enabled
 	echo never > /sys/kernel/mm/transparent_hugepage/defrag
 	# install mariadb and galera
-	curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | bash
 	yum -y install galera MariaDB-server
 	# configure mariadb
 	cp /vagrant/etc/server.cnf  /etc/my.cnf.d/server.cnf
