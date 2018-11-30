@@ -29,7 +29,7 @@ Grab a coffee and wait for the install. After that go on haproxy01 stats page :
 
 All the backends are down, let's configure it :
 
-On galera01 :
+## On galera01 :
 
 ```
 ssh -pPORT vagrant@localhost
@@ -57,7 +57,6 @@ On the others boxes, all the same commands except for the last one :
 Allright, check if our cluster is up and running. You can execute this script on any boxes :
 
 ```
-sudo -i
 /vagrant/scripts/check_cluster.sh
 ```
 
@@ -71,19 +70,25 @@ Expected output :
 +--------------------+-------+
 ```
 
-Perfect. Now we can secure our cluster :
+
+Perfect. Now we can create dummy data for testing  :
 
 ```
 sudo -i
+/vagrant/scripts/db_test.sh
+```
+
+Finally we can secure our cluster :
+
+```
 mysql_secure_installation
 ```
 
-You can check the replication, the database "test" is deleted on all node's cluster.
+You can check the replication, the database "test" is deleted on all node's cluster and we a have database "mydbtest".
 
-The cluster is up and running now, but on HAproxy the backends are still red. Yes because HAproxy had not a proper user on the cluster to connect on it. Let's fix it. On galera :
+The cluster is up and running now, but on HAproxy the backends are still red. Yes because HAproxy had not a proper user on the cluster to connect on it. Let's fix it :
 
 ```
-sudo -i
 /vagrant/scripts/haproxy_user.sh
 ```
 
@@ -93,6 +98,6 @@ Everything is green now :)
 
 On your host :
 
-
+mysql -P3307 -umydbtestuser -p -h127.0.0.1 mydbtest
 
 * mysql://localhost:3307 : Galera cluster with HA ;

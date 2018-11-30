@@ -1,5 +1,3 @@
-#!/bin/ash
+#!/bin/bash
 
-sudo -i
 mysql -u root  -e "SHOW STATUS LIKE 'wsrep_cluster_size';"
-

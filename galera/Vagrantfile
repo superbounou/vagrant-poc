@@ -33,7 +33,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.vm.provision "shell", path: "scripts/install.sh"
       if opts[:name] == "haproxy01"
         config.vm.network "forwarded_port", guest: 9000, host: 9000, protocol: "tcp"
-        config.vm.network "forwarded_port", guest: 3307, host: 3306, protocol: "tcp"
+        config.vm.network "forwarded_port", guest: 3306, host: 3307, protocol: "tcp"
       end
     end
   end
