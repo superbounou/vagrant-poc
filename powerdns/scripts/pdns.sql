@@ -1,5 +1,5 @@
-GRANT ALL ON pdns.* TO 'powerdns'@'localhost' IDENTIFIED BY 'ilovebaguette123';
-GRANT ALL ON pdns.* TO 'powerdns'@'centos7.localdomain' IDENTIFIED BY 'ilovebaguette123';
+GRANT ALL ON pdns.* TO 'powerdns'@'localhost' IDENTIFIED BY 'MDPPDNS';
+GRANT ALL ON pdns.* TO 'powerdns'@'centos7.localdomain' IDENTIFIED BY 'MDPPDNS';
 
 CREATE TABLE domains (
 	  id                    INT AUTO_INCREMENT,
